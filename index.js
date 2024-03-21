@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === undefined) {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
-// New comment 2
+// New comment 1
 const start = async () => {
     try
     {
