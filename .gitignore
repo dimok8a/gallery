@@ -9,7 +9,7 @@
 *.log
 
 # Ignore environment files
-*.env*
+.env
 
 # Ignore yarn's lock file
 yarn.lock
