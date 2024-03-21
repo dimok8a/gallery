@@ -20,12 +20,6 @@ if (process.env.NODE_ENV === undefined) {
     })
 }
 
-app.get("", (req, res) => {
-    const ip = req.headers['x-forwarded-for']
-    console.log(`Request from ${ip}`);
-    return res.send("Hello!");
-});
-
 const start = async () => {
     try
     {
