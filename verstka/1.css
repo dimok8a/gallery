@@ -1,0 +1,54 @@
+body{
+    background-color: #181818;
+    font-family: Averta CY;
+}
+
+.headline {
+    position: absolute;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 10vh;
+    margin-top: 15vh;
+    margin-left: 28vw;
+    text-align: center;
+    width: 40vw;
+}
+
+.arrow {
+    position: absolute;
+    width: 55vh;
+    margin-left: 60vw;
+    margin-top: 35vh;
+}
+
+/*Стили для кнопки "добавить", используются везде дальше*/
+
+.add-btn {
+    position: fixed;
+    scroll-margin-top: 100%;
+    background-color: #FFFFFF;
+    color: #181818;
+    border-radius: 100%;
+    border-width: 0;
+    margin-top: 80vh;
+    margin-left: 87vw;
+    width: 15vh;
+    height: 15vh;
+    font-size: 10vh;
+    font: Averta Cyrillic Light;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.7);
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+    background-color: rgba(24, 24, 24, 0.1);
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.1);
+}
