@@ -4,12 +4,15 @@ const app = express()
 const fileUpload = require('express-fileupload')
 const path = require('path')
 const router = require('./routes/index')
+const Database = require("./Database/Database");
 
 
+app.use(fileUpload({}))
+app.use(express.json({ extended: true }))
 app.use('/api', router)
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
-app.use(fileUpload({}))
+
 
 // На случай запуска прямо через консоль
 if (process.env.NODE_ENV === undefined) {
@@ -22,6 +25,7 @@ if (process.env.NODE_ENV === undefined) {
 const start = async () => {
     try
     {
+        await new Database().init()
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
     } catch (err)
     {
@@ -30,3 +34,4 @@ const start = async () => {
 }
 
 start()
+// main().then(() => start())

@@ -1,26 +1,81 @@
 const path = require('path')
+const Database = require("../Database/Database")
+const Photo = require("../Entity/Photo");
 class PhotoController {
-    async getById(req, res)
+
+    constructor() {
+        const db = new Database().getInstance()
+    }
+
+    async getBySmallFilePath(req, res)
     {
-        const { id } = req.params;
-        return res.json({message: `Photo with id ${id}`})
+        try {
+            const {smallFilePath} = req.query;
+            const db = new Database().getInstance()
+            const photo = await db.getPhotoBySmallFilePath(smallFilePath)
+            return res.json(photo)
+        } catch (e)
+        {
+            console.log(e)
+            // return res.json(ApiError.badRequest(e.message))
+            return res.json({message: `Something went wrong`})
+        }
+    }
+
+    async getDetailsBySmallFilePath(req, res)
+    {
+        try {
+            const {smallFilePath} = req.query;
+            const db = new Database().getInstance()
+            const photo = await db.getDetailsBySmallFilePath(smallFilePath)
+            return res.json(photo)
+        } catch (e)
+        {
+            console.log(e)
+            // return res.json(ApiError.badRequest(e.message))
+            return res.json({message: `Something went wrong`})
+        }
     }
 
     async getAllPhotos(req, res)
     {
-        const photos = ["1.jpg", "2.jpg"]
-        return res.json({photos})
+        try {
+            const db = new Database().getInstance()
+            const photos = await db.getAllPhotos()
+            return res.json({photos})
+        } catch (e) {
+            console.log(e)
+            // return res.json(ApiError.badRequest(e.message))
+            return res.json({message: `Something went wrong`})
+        }
+    }
+
+    async deletePhoto(req, res)
+    {
+        try {
+            const {filePath} = req.query
+            console.log(filePath)
+            const db = new Database().getInstance()
+            const photos = await db.deletePhoto(filePath)
+            return res.json({photos})
+        } catch (e) {
+            console.log(e)
+            // return res.json(ApiError.badRequest(e.message))
+            return res.json({message: `Something went wrong`})
+        }
     }
 
     async create(req, res, next)
     {
+        const db = new Database().getInstance()
         try {
-            const {photo} = req.files
-            // let fileName = uuid.v4() + ".jpg"
-            // photo.mv(path.resolve(__dirname, '..', 'static', fileName))
-            // const newPhoto = await Photo.create({"photo": fileName, placeId})
-            return res.json({message: `Photo created!`})
+            const {name, file_size, width, height} = req.body
+            const {file} = req.files
+            const photo = new Photo(name, new Date(), file_size, height, width)
+            await db.addNewPhoto(photo, file)
+            return res.json({message: `Photo was created!`})
         } catch (e) {
+            console.log(e)
             // return res.json(ApiError.badRequest(e.message))
             return res.json({message: `Photo was not created!`})
         }
