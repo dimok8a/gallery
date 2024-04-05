@@ -11,6 +11,7 @@
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "axios": "^1.6.8",
+    "browserify-zlib": "^0.2.0",
     "cross-env": "^7.0.3",
     "gallery": "file:..",
     "react": "^18.2.0",

@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import "./AddPhoto.css";
-import { instanceApi } from "../../axios/request";
+import { SavePhotoForm } from "../PhotoSave/SavePhotoForm";
 
 export const AddPhoto = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [nameFile, setNameFile] = useState(null);
     const [sizeFile, setSizeFile] = useState(null);
     const [lastModified, setLastModified] = useState(null);
-
-    const saveImage = async () => {
-        await instanceApi.postForm("/photo", {file: selectedImage}).then((response) => {
-            console.log(response);
-        });
-    };
 
     return (
         <div>
@@ -51,43 +45,13 @@ export const AddPhoto = () => {
                     />
                 </div>
             ) : (
-                <div class="for-centering">
-                    <div class="img-container">
-                        <div class="img-column">
-                            <img src={URL.createObjectURL(selectedImage)} />
-
-                            <div className="apcc">
-                                <button
-                                    onClick={() => setSelectedImage(null)}
-                                    class="return-btn"
-                                >
-                                    отмена
-                                </button>
-
-                                <button
-                                    onClick={() => saveImage()}
-                                    class="return-btn"
-                                >
-                                    Сохранить
-                                </button>
-                            </div>
-                        </div>
-                        <div class="info-column">
-                            <div class="title-img">Имя файла: {nameFile} </div>
-                            <div class="size-img">150х150px</div>
-                            <div class="weight-img">
-                                Размер файла: {sizeFile}
-                            </div>
-                            <div class="date-img">
-                                {new Date(lastModified).getDate() +
-                                    "." +
-                                    new Date(lastModified).getMonth() +
-                                    "." +
-                                    new Date(lastModified).getFullYear()}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SavePhotoForm
+                    selectedImage={selectedImage}
+                    setSelectedImage={setSelectedImage}
+                    lastModified={lastModified}
+                    nameFile={nameFile}
+                    sizeFile={sizeFile}
+                />
             )}
         </div>
     );

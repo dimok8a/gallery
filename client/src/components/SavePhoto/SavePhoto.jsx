@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import ExampleContext from "../../Provider";
-import "./SavePhoto.css";
+import "./SavePhoto.module.css";
 
 export const SavePhoto = () => {
     const [selectedImage, setSelectedImage] = useState(null);
