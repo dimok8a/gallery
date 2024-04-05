@@ -1,0 +1,43 @@
+body {
+    background-color: #181818;
+    margin-left: 2vw;
+    position: relative;
+    min-height: 100%;
+}
+
+.menu-btn-div {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    height: auto;
+    width: 10%;
+    padding: 2vh 3vh;
+}
+
+.inform-btn, .delete-btn {
+    background-color: #ffffff00;
+    font-family: Averta CY;
+    font-size: 100%;
+    border: 0;
+    width: auto;
+    text-align: left;
+    display: inline-block;
+}
+
+.delete-btn {
+    color: #DF0000;
+}
+
+.delete-btn img{
+    height: 2vh;
+}
+
+.inform-btn:hover, .delete-btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.inform-btn:active, .delete-btn:active {
+    transform: scale(1);
+}
