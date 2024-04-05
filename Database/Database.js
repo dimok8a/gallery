@@ -227,11 +227,11 @@ module.exports =  class Database {
         })
     }
 
-    async getDetailsBySmallFilePath(smallFilePath) {
+    async getDetailsByFilePath(filePath) {
         return await this.driver.tableClient.withSession(async (session) => {
             const query = `
             SELECT name, created_at, file_size, height, width
-            FROM photos WHERE small_file_path = '${smallFilePath}'`;
+            FROM photos WHERE file_path = '${filePath}'`;
             const {resultSets} = await session.executeQuery(query);
             const resultSet = resultSets[0]
             const result = TypedData.createNativeObjects(resultSet)[0];

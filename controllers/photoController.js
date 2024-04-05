@@ -22,12 +22,12 @@ class PhotoController {
         }
     }
 
-    async getDetailsBySmallFilePath(req, res)
+    async getDetailsByFilePath(req, res)
     {
         try {
-            const {smallFilePath} = req.query;
+            const {filePath} = req.query;
             const db = new Database().getInstance()
-            const photo = await db.getDetailsBySmallFilePath(smallFilePath)
+            const photo = await db.getDetailsByFilePath(filePath)
             return res.json(photo)
         } catch (e)
         {
@@ -57,7 +57,7 @@ class PhotoController {
             console.log(filePath)
             const db = new Database().getInstance()
             const photos = await db.deletePhoto(filePath)
-            return res.json({photos})
+            return res.json({message: `Photo was deleted!`})
         } catch (e) {
             console.log(e)
             // return res.json(ApiError.badRequest(e.message))

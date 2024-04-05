@@ -34,9 +34,9 @@
 "https://gallery-bucket.storage.yandexcloud.net/original_photos/3e4bd381-be04-49a9-934a-ab761e7439e0.jpg"
 
 * Получить детали фото:
-#### Путь: `````/api/photo/original?smallFilePath=`````
+#### Путь: `````/api/photo/original/details?filePath=`````
 #### Параметры:
-* smallFilePath - путь до миниатюры
+* filePath - путь до оригинала фото
 #### Возвращаемый объект:
 ```json
 {
@@ -61,5 +61,18 @@ new Date().toJSON().toString()
 ```json
 {
   "message": "Photo was created!"
+}
+```
+
+## DELETE запросы
+* Добавить фото:
+#### Путь: `````/api/photo?filePath=`````
+* filePath - путь до оригинала фото
+
+new Date().toJSON().toString()
+#### Возвращаемый объект:
+```json
+{
+  "message": "Photo was deleted!"
 }
 ```
