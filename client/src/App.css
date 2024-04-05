@@ -1,0 +1,130 @@
+body {
+    background-color: #181818;
+    font-family: Averta CY;
+}
+
+.headline {
+    position: absolute;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 10vh;
+    margin-top: 15vh;
+    margin-left: 28vw;
+    text-align: center;
+    width: 40vw;
+}
+
+.arrow {
+    position: absolute;
+    width: 55vh;
+    margin-left: 60vw;
+    margin-top: 35vh;
+}
+
+/*Стили для кнопки "добавить", используются везде дальше*/
+
+.add-btn {
+    position: fixed;
+    scroll-margin-top: 100%;
+    background-color: #ffffff;
+    color: #181818;
+    border-radius: 100%;
+    border-width: 0;
+    margin-top: 80vh;
+    margin-left: 87vw;
+    width: 15vh;
+    height: 15vh;
+    font-size: 10vh;
+    font: Averta Cyrillic Light;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.7);
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+    background-color: rgba(24, 24, 24, 0.1);
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.1);
+}
+
+
+.container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5,18vw);
+    column-gap: 1vw;
+    justify-items: stretch;
+}
+
+.img {
+    /* Размещаем контейнеры по центру */
+    display: grid;
+    place-items: center;
+    height: 18vw;
+    column-fill: balance;
+    border-radius: 1em;
+    transition: all 0.2s ease;
+}
+
+.img:hover {
+    transform: scale(1.025);
+}
+
+.img:active {
+    transition: all 0.1s ease;
+    transform: scale(0.97);
+}
+
+/* Стили для скроллбара все здесь! */
+/* фон скроллбара*/
+::-webkit-scrollbar {
+    background-color: #181818;
+    width: 1vw;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #d6d6d6;
+    border-radius: 9em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #797979;
+}
+
+/*Кнопка добавить*/
+.add-btn {
+    position: fixed;
+    scroll-margin-top: 100%;
+    background-color: #FFFFFF;
+    color: #181818;
+    border-radius: 100%;
+    border-width: 0;
+    margin-top: 80vh;
+    margin-left: 87vw;
+    width: 15vh;
+    height: 15vh;
+    font-size: 10vh;
+    font: Averta Cyrillic Light;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.7);
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+    background-color: rgba(24, 24, 24, 0.1);
+    box-shadow: -4px 3px 39px 25px rgba(24, 24, 24, 0.1);
+}

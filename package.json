@@ -15,7 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.445.0",
+    "axios": "^1.6.8",
     "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "easy-yandex-s3": "^2.0.0",

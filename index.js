@@ -5,8 +5,9 @@ const fileUpload = require('express-fileupload')
 const path = require('path')
 const router = require('./routes/index')
 const Database = require("./Database/Database");
+const cors = require('cors');
 
-
+app.use(cors())
 app.use(fileUpload({}))
 app.use(express.json({ extended: true }))
 app.use('/api', router)
