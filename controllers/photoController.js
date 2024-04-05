@@ -69,9 +69,9 @@ class PhotoController {
     {
         const db = new Database().getInstance()
         try {
-            const {name, file_size, width, height} = req.body
+            const {name, file_size, width, height, date} = req.body
             const {file} = req.files
-            const photo = new Photo(name, new Date(), file_size, height, width)
+            const photo = new Photo(name, new Date(date), file_size, height, width)
             await db.addNewPhoto(photo, file)
             return res.json({message: `Photo was created!`})
         } catch (e) {

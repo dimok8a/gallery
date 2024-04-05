@@ -131,8 +131,10 @@ module.exports =  class Database {
         return await this.driver.tableClient.withSession(async (session) => {
             const query = `
             SELECT small_file_path,
-                   name
-            FROM photos;`;
+                   name,
+                   created_at
+            FROM photos 
+            ORDER BY created_at DESC;`;
             const {resultSets} = await session.executeQuery(query);
 
             const resultSet = resultSets[0]
