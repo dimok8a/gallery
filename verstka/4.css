@@ -74,16 +74,17 @@ body {
     place-items: center;
     column-fill: balance;*/
     grid-area: B;
-    display: grid;
-    grid-template-rows: 5% 85% 10%;
-    row-gap: 0vh;
-    gap: 0vh;
-    justify-self: center;
-    justify-content: center;
+    display: table;
+    top: 50%;
+    transform: translateY(-50%);
 
     position: fixed;
-    height: 90%;
-    width: 37%;
+    min-height: 20%;
+    max-height: 90%;
+    height: auto;
+    min-width: 10vw;
+    max-width: 60vw;
+    width: auto;
     background-color: #FFFFFF;
     color: #181818;
     font-weight: 400;
@@ -93,21 +94,29 @@ body {
 }
 
 .img-open {
-    margin-top: 10%;
-    height: 90%;
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 10vh;
+    max-height: 80vh;
+    height: auto;
+    min-width: 10vw;
+    max-width: 50vw;
+    width: auto;
+    margin-top: 3vw;
 }
 
 /* Кнопка с крестиком */
 
 .close-btn {
-    justify-self: end;
-    position: relative;
-    margin-top: 2vh;
+    /*justify-self: end;*/
+    display: table-cell;
+    float: right;
+    padding-bottom: 1%;
+    padding-right: 2%;
     width: 3vw;
     height: 3vw;
     background-color: rgba(0, 0, 0, 0.0);
     border: 0px;
-    border-radius: 100%;
     color: #181818;
     font-size: 2vw;
     font-weight: 100;
@@ -118,7 +127,6 @@ body {
 
 .close-btn:hover {
     transform: scale(1.1);
-    background-color: #18181818;
     cursor: pointer;
 }
 
@@ -128,26 +136,21 @@ body {
 
 /* Кнопка инфо */
 .info-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    justify-self: end;
-    width: 4vw;
-    height: 3vw;
+    display: table-cell;
+    float: right;
+    padding-bottom: 1%;
+    padding-right: 2%;
     background-color: rgba(0, 0, 0, 0.0);
     border: 0px;
-    border-radius: 20%;
     color: #181818;
     font-size: 3vw;
     font-weight: 500;
-    font: Averta Cyrillic Light;
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .info-btn:hover {
     transform: scale(1.1);
-    background-color: #18181818;
     cursor: pointer;
 }
 
@@ -157,27 +160,21 @@ body {
 
 /* стрелочные кнопки */
 .prev-btn-div {
-    /*display: grid;
-    place-items: center;
-    column-fill: balance;*/
     grid-area: A;
     justify-self: start;
-    margin-top: 20vh;
-    margin-left: 5vw;
+    margin-top: 40%;
+}
+
+.next-btn-div {
+    grid-area: C;
+    justify-self: center;
+    margin-top: 40%;
 }
 
 .prev-btn {
     position: fixed;
-    /*width: 20vw;*/
-    /*height: 70vh;*/
     background-color: rgba(0, 0, 0, 0.0);
     border: 0px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 50vh;
-    font-weight: 100;
-    font: Averta Cyrillic Light;
-    text-align: center;
     transition: all 0.3s ease;
 }
 
@@ -190,27 +187,11 @@ body {
     transform: scale(-1, -1);
 }
 
-.next-btn-div {
-    /*display: grid;
-    place-items: center;
-    column-fill: balance;*/
-    grid-area: C;
-    margin-top: 20vh;
-    margin-right: 5vw;
-}
-
 .next-btn {
     position: fixed;
     width: 20vw;
-    /*height: 70vh;*/
     background-color: rgba(0, 0, 0, 0.0);
     border: 0px;
-    border-radius: 5%;
-    color: #fff;
-    font-size: 50vh;
-    font-weight: 100;
-    font: Light;
-    text-align: center;
     transition: all 0.3s ease;
 }
 
