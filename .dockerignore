@@ -2,7 +2,7 @@
 **/node_modules/
 
 # Ignore built files for React app
-**/build/
+#**/build/
 **/dist/
 
 # Ignore any logs
@@ -15,8 +15,8 @@
 yarn.lock
 
 # Ignore any compiled TypeScript files
-client/**/*.js
-client/**/*.js.map
+#client/**/*.js
+#client/**/*.js.map
 
 # Ignore any compiled SASS/SCSS files
 client/**/*.scss

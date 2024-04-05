@@ -13,8 +13,9 @@ RUN npm install
 # Копирование backend в контейнер
 COPY . .
 
+#RUN npm run client:install
 # Сборка frontend
-RUN npm run client:install && npm run client:build
+#RUN npm run client:install && npm run client:build
 
 
 # Запуск backend
