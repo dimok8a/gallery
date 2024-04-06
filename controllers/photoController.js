@@ -70,6 +70,9 @@ class PhotoController {
         const db = new Database().getInstance()
         try {
             const {name, file_size, width, height, date} = req.body
+            if (!req.files || !req.files.file) {
+                throw new Error('File is missing');
+            }
             const {file} = req.files
             const photo = new Photo(name, new Date(date), file_size, height, width)
             await db.addNewPhoto(photo, file)
