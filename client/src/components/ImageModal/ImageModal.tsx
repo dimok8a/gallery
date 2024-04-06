@@ -11,7 +11,7 @@ export const ImageModal: FC = () => {
     const partAfterPhoto = parts[2];
     const { state, _ } = useContext<any>(ExampleContext);
     const smallPhotoLink = state[partAfterPhoto]["smallFilePath"]
-    const [original, setOriginal] = useState(require("../../assets/images/loader.gif"))
+    const [original, setOriginal] = useState("")
     useEffect(() => {
         instanceApi.get(`/photo/original/?smallFilePath=${smallPhotoLink}`, {
             headers: {
