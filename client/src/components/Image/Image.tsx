@@ -9,9 +9,7 @@ interface ImageProps {
 export const Image: FC<ImageProps> = ({imgsrc, index}) => {
     return (
         <div>
-            <div className="container">
                 <Link to={`/photo/${index}`}><img src={imgsrc.smallFilePath} className="img" /></Link>
-            </div>
         </div>
     );
 };

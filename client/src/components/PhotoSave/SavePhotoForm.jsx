@@ -1,6 +1,7 @@
 import React from "react";
 import { instanceApi } from "../../axios/request";
 import styles from "./SavePhotoForm.module.css";
+import {useNavigate} from "react-router-dom";
 
 export const SavePhotoForm = ({
     nameFile,
@@ -9,6 +10,7 @@ export const SavePhotoForm = ({
     lastModified,
     sizeFile,
 }) => {
+    const navigate = useNavigate();
     const saveImage = async () => {
         try {
             const formData = new FormData();
@@ -17,6 +19,7 @@ export const SavePhotoForm = ({
             formData.append("height", 100);
             formData.append("date", new Date().toJSON().toString());
             formData.append("file", selectedImage); 
+            formData.append("file_size", Math.round( sizeFile*1024));
 
             const response = await instanceApi.post("/photo", formData, {
                 headers: {
@@ -24,6 +27,9 @@ export const SavePhotoForm = ({
                 },
             });
             console.log(response);
+            setTimeout(() => {
+                navigate("/")
+            }, 2000)
         } catch (error) {
             console.log(error);
         }

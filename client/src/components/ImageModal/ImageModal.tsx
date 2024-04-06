@@ -1,7 +1,8 @@
-import React, { FC, useContext, useEffect } from "react";
+import React, {FC, useContext, useEffect, useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./ImageModal.css";
 import ExampleContext from "../../Provider";
+import {instanceApi} from "../../axios/request";
 
 export const ImageModal: FC = () => {
     const location = useLocation();
@@ -9,6 +10,17 @@ export const ImageModal: FC = () => {
     const parts = pathname.split("/");
     const partAfterPhoto = parts[2];
     const { state, _ } = useContext<any>(ExampleContext);
+    const smallPhotoLink = state[partAfterPhoto]["smallFilePath"]
+    const [original, setOriginal] = useState(require("../../assets/images/loader.gif"))
+    useEffect(() => {
+        instanceApi.get(`/photo/original/?smallFilePath=${smallPhotoLink}`, {
+            headers: {
+                "Content-Type": "Application/json",
+            }
+        }).then((r) => {
+            setOriginal(r.data)
+        })
+    }, [])
 
     return (
         <div className="img-container">
@@ -23,7 +35,7 @@ export const ImageModal: FC = () => {
                 </Link>
                 <center>
                     <img
-                        src={state[partAfterPhoto]["smallFilePath"]}
+                        src={original}
                         className="img-open"
                     />
                 </center>

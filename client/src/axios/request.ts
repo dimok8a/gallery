@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const instanceApi = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'https://d5dp952oufmhv72m6ap2.apigw.yandexcloud.net/api',
 });

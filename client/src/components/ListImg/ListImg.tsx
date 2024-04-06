@@ -23,9 +23,11 @@ export const ListImage: FC = () => {
     return (
         <div>
             <Link to="/add_photo"><button className="add-btn">+</button></Link>
-            {listImage.map((item, index) => {
-                return <Image imgsrc={item} index={index} />;
-            })}
+            <div className="container">
+                {listImage.map((item, index) => {
+                    return <Image imgsrc={item} index={index} />;
+                })}
+            </div>
         </div>
     );
 };
